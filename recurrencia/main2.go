@@ -3,7 +3,7 @@ package main
 import 
 (
    "fmt"
-   "time"
+  // "time"
 )
 
 func Generador(c chan<- int){
@@ -12,7 +12,7 @@ func Generador(c chan<- int){
 
    	c <- i
       }
-      c <- 1555555
+      //c <- 1555555
 	close(c)
 
 }
@@ -35,12 +35,15 @@ func  main(){
         fmt.Println("---Programa de uso de canales ")
   	generador := make(chan int)
   	dobles	    := make(chan int)
-	fmt.Println("---Elcanal de entrada es elsiguente ")
-	go Print(generador)
-        go Generador(generador)
+	fmt.Println("---El canal de entrada es el siguente ")
+	//go Print(generador)
+	//time.Sleep(10 * time.Second)
+    go Generador(generador)
+	//time.Sleep(10 * time.Second)
 	go Doble(generador,dobles)
-	go Print(dobles)
-        time.Sleep(10 * time.Second)
+	//time.Sleep(10 * time.Second)
+	 Print(dobles)
+    //time.Sleep(10 * time.Second)
        
 	
 	
